@@ -6,7 +6,6 @@ questions.txt
 # Archivos de cache / Directorios
 __pycache__/
 .ipynb_checkpoints/
-
 datasets/
 
 # Entornos virtuales (si usas virtualenv o similar)
