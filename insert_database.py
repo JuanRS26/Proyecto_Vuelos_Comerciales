@@ -5,34 +5,34 @@ import mysql.connector
 # --------------- Se realiza la carga de la informacion de la base de datos ------------
 
 try:
+      # Se realiza la conexion a la base de datos con los datos indicados en el archivo
       df = pd.read_json('database/data_host.json')
+      print('\nLa base de datos se conecto correctamente...\n')
+
+# Si no se encontro el archivo para realizar la conexion a la base de datos, se solicita la informacion necesaria
 except FileNotFoundError:
 
-      while True:
-            print('\nNo se encontro informacion de la base de datos\n')
-            opcion = input('Quiere ingresar la informacion de una base de datos personal? (y/n): ')
+      print('\nNo se encontro informacion de la base de datos, por favor ingrese los datos requeridos...\n')
+      
+      data = {
+            'host': [],
+            'user': [],
+            'pass': [],
+            'database': []
+      }
 
-            if opcion in {'y', 'Y'}:
-                  data = {
-                        'host': [],
-                        'user': [],
-                        'pass': [],
-                        'database': []
-                  }
+      # Se solicitan los datos necesarios para la conexion a la base de datos
+      data['host'].append(input('Digite el host de la base de datos: '))
+      data['user'].append(input('Digite el nombre del usuario: '))
+      data['pass'].append(input('Digite la contrasenia del usuario: '))
+      data['database'].append(input('Digite el nombre de la base de datos: '))
 
-                  data['host'].append(input('Digite el host de la base de datos: '))
-                  data['user'].append(input('Digite el nombre del usuario: '))
-                  data['pass'].append(input('Digite la contrasenia del usuario: '))
-                  data['database'].append(input('Digite el nombre de la base de datos: '))
+      df = pd.DataFrame(data)
+      df.to_json('database/data_host.json')     # Se guardan los datos en un archivo .json
 
-                  df = pd.DataFrame(data)
-                  df.to_json('database/data_host.json') 
+      df = pd.read_json('database/data_host.json')    # Se cargan los datos anteriormente guardados en el archivo .json
 
-                  df = pd.read_json('database/data_host.json')
-                  break
-            else:
-               print('\nPorfavor ingresa informacion necesaria para ingresar a la base de datos\n')
-
+      print('\nSe guardaron los datos correctamente...\n')
 
 # ----------------------------------------------------------------------------------
 

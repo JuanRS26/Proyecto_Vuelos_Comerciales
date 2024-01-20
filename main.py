@@ -1,16 +1,31 @@
 import ETL_Functions as ef
-import insert_database as id
 from tqdm import tqdm   # Funciona para actualizar la carga en pantalla y saber que porcentaje lleva la ejecucion del script en tiempo real
+
+# Se crea un bucle para saber si el usuario quiere cargar una base de datos
+while True:
+    Database_Info = input('\nDesea realizar la conexion a una base de datos (Y/N)?: ')
+
+    # Se realiza la conexion a la base de datos
+    if Database_Info in ('Y','y'):
+        import insert_database as id
+
+        # Se crea una lista con las funciones de la carga de los datos para hacer una carga masiva
+        Data_Load  = [id.airline, id.airplane, id.airport, id.description, id.y_1987, id.y_1988, id.y_1989, id.y_1990, id.y_1991, 
+                      id.y_1992, id.y_1993, id.y_1994, id.y_1995, id.y_1996, id.y_1997, id.y_1998, id.y_1999, id.y_2000, id.y_2001, 
+                      id.y_2002, id.y_2003, id.y_2004, id.y_2005, id.y_2006, id.y_2007, id.y_2008, id.y_2015]
+
+    # Si lo digitado por el usuario no esta en las opciones, se vuelve a pedir que digite una opcion valida
+    elif Database_Info not in ('N', 'n') :
+        print(f'\nLo que digitaste "{Database_Info}", no es valido\n')
+        continue
+
+    break
+
 
 # Se crea una lista con todos los nombres de los Data sets sin proceso ETL
 Data_Sets_ETL = ['airports_1', 'airports_2', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001',
                  '2002', '2003', '2004', '2005', '2006', '2007', '2008',  'flights', 'description', 
                  'carriers', 'plane-data']
-
-# Se crea una lista con las funciones de la carga de los datos para hacer una carga masiva
-Data_Load  = [id.airline, id.airplane, id.airport, id.description, id.y_1987, id.y_1988, id.y_1989, id.y_1990, id.y_1991, id.y_1992, 
-              id.y_1993, id.y_1994, id.y_1995, id.y_1996, id.y_1997, id.y_1998, id.y_1999, id.y_2000, id.y_2001, id.y_2002, id.y_2003, 
-              id.y_2004, id.y_2005, id.y_2006, id.y_2007, id.y_2008, id.y_2015]
 
 # Se crea un bucle while para mostrar al usuario las opciones de ETL que hay 
 while True:
@@ -109,6 +124,13 @@ while True:
 
     # En la tercera opcion se hace la carga masiva de todos los data sets luego de tener las transformaciones
     elif opcion == '3':
+
+        # Si el usuario no quizo realizar la conexion a una base de datos, los de vuelve al menu principal
+        if Database_Info in ('N', 'n'):
+            print('\nNo hay informacion de la base de datos para realizar la carga...\n \
+                  \nPor favor seleccione otra opcion...\n')
+            continue
+
         print('\nLa opcion que seleccionaste fue "3"\n')
 
         #-------------------------------------------------------------------------------------------
@@ -138,6 +160,12 @@ while True:
 
     # En la cuarta opcion se realiza una carga de datos individual
     elif opcion == '4':
+
+        # Si el usuario no quizo realizar la conexion a una base de datos, los de vuelve al menu principal
+        if Database_Info in ('N', 'n'):
+            print('\nNo hay informacion de la base de datos para realizar la carga...\n \
+                  \nPor favor seleccione otra opcion...\n')
+            continue
 
         # Se crea un while con un menu secundario para que el usuario seleccione un data set en especifico
         while True:

@@ -9,11 +9,12 @@ warnings.filterwarnings("ignore", category=pd.errors.DtypeWarning)
 
 def dataFrames(NameSet):
 
+    # Se comprueba si el dataframe tiene caracteres distintos al protocolo 'utf-8'
     if NameSet in ['airports_1', 'airports_2', 'flights', 'carriers', 'plane-data']:
         try:
             df = pd.read_csv(f'datasets/{NameSet}.csv', encoding = 'utf-8')
         except UnicodeDecodeError:
-            df = pd.read_csv(f'datasets/{NameSet}.csv', encoding = 'latin1')
+            df = pd.read_csv(f'datasets/{NameSet}.csv', encoding = 'latin1')    # Se cambia el protocolo de decodificacion
 
     else:
         df = pd.read_parquet(f'datasets/{NameSet}.parquet')
@@ -102,7 +103,7 @@ def transforms(df, special = False, ColumnTail = 0, CancelReason = False):
 
 
     if ColumnTail == 1:
-            # Se elimina la columna 'Tail_Num' para hacer las transformaciones necesarias
+            # Se elimina la columna 'Tail_Num' de la lista anterior para hacer las transformaciones necesarias
             ColumList.remove('Tail_Num')
             df['Tail_Num'].fillna('0', inplace = True)  # Se remplaza los valores nulos
         
@@ -164,9 +165,10 @@ def ETLProcedure(data):
 
     bandera = False
 
+    # Se crea un bucle para transformar cada uno de los datasets que se proporcionaron
     for i in range(0, len(data)):
 
-        if data[i] == 'airports_2' or data[i] == 'airports_1':
+        if data[i] == 'airports_2' or data[i] == 'airports_1':  # Se comprueba que el Dataframe sea el correcto
 
             if bandera == False:
                 if 'airports_2' in data and 'airports_1' in data:
@@ -197,22 +199,22 @@ def ETLProcedure(data):
             continue
 
 
-        if data[i] in grupo1:
+        if data[i] in grupo1:   # Se comprueba que el Dataframe se encuentre en el grupo 1
 
             df = dataFrames(data[i])
             df = transforms(df)
         
-        elif data[i] in grupo2:
+        elif data[i] in grupo2: # Se comprueba que el Dataframe se encuentre en el grupo 2
 
             df = dataFrames(data[i])
             df = transforms(df, ColumnTail = 1)
 
-        elif data[i] == '2002':
+        elif data[i] == '2002': # Se comprueba que el Dataframe sea '2002'
 
             df = dataFrames(data[i])
             df = transforms(df, ColumnTail = 2)
         
-        elif data[i] in grupo3:
+        elif data[i] in grupo3: # Se comprueba que el Dataframe se encuentra en el grupo 3
 
             df = dataFrames(data[i])
             df = transforms(df, ColumnTail = 1, CancelReason = True)
