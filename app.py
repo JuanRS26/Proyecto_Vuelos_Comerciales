@@ -149,12 +149,8 @@ st.title(f'{Primary_Title}', help = 'Esto es un Dashborad acerca de los vuelos c
 # -----------------------------------------------------------------------------------------------------------
 
 
-# Pruebas
-# tab1, tab3, tab4, tab5 = st.tabs([':clipboard: Registros de vuelos', ':chart_with_upwards_trend: Aerolineas',
-#                                   ':world_map: Aeropuertos', ':bomb: Pruebas'])
-
-tab1, tab3, tab4 = st.tabs([':clipboard: Registros de vuelos', ':chart_with_upwards_trend: Aerolineas',
-                                  ':world_map: Aeropuertos'])
+tab1, tab2, tab3, tab4 = st.tabs([':clipboard: Registros de vuelos', ':chart_with_upwards_trend: Aerolineas',
+                                  ':world_map: Aeropuertos', ':computer: Machine Learning'])
 
 
 with tab1:
@@ -233,7 +229,7 @@ with tab1:
             Year = Info_Airline[Info_Airline['Year'] == df_chart.get(Select_Year)]
             st.dataframe(Year.reset_index(drop = True), use_container_width = True, height = 700)
 
-with tab3:  
+with tab2:  
 
     unique = pd.unique(Info_Airline['Airline_Code'])
     dictionary_Select = {}
@@ -277,7 +273,7 @@ with tab3:
         st.dataframe(Data_Airline_Year[['Year', 'Total']].reset_index(drop = True), use_container_width = True, height = 700,)
 
 
-with tab4:
+with tab3:
 
     st.header(
         'AEROPUERTOS',
@@ -364,20 +360,7 @@ with tab4:
                 use_container_width = True,
                 height = 700
             )
-            
-# with tab5:
 
-#     st.header('**Esto** es un *encabezado* con division', divider = 'green')
-#     st.subheader('**Esto** es un *sub-encabezado* con division', divider = 'violet')
-#     st.divider()
+with tab4:
 
-#     a = st.button('Boton 1')
-#     b = st.button('Boton 2')
-#     c = st.button('Boton 3')
-#     d = st.button('Boton 4')
-#     e = st.button('Boton 5')
-
-
-#     st.write(f'El boton 1 esta en estado: {a}')
-#     st.write(f'El boton 2 esta en estado: {b}')
-#     st.write(f'El boton 3 esta en estado: {c}')
+    st.header('PROXIMAMENTE...', anchor = False)
