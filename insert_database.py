@@ -55,6 +55,8 @@ def y_1987():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1987.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos    
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1987` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -75,6 +77,8 @@ def y_1988():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1988.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -97,6 +101,8 @@ def y_1989():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1989.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1989` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -117,6 +123,8 @@ def y_1990():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1990.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -139,6 +147,8 @@ def y_1991():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1991.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1991` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -159,6 +169,8 @@ def y_1992():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1992.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -181,6 +193,8 @@ def y_1993():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1993.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1993` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -201,6 +215,8 @@ def y_1994():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1994.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -223,6 +239,8 @@ def y_1995():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1995.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1995` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -243,6 +261,8 @@ def y_1996():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1996.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -265,6 +285,8 @@ def y_1997():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1997.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1997` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -285,6 +307,8 @@ def y_1998():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1998.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -307,6 +331,8 @@ def y_1999():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/1999.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_1999` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -327,6 +353,8 @@ def y_2000():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2000.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -349,6 +377,8 @@ def y_2001():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2001.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_2001` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -369,6 +399,8 @@ def y_2002():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2002.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -391,6 +423,8 @@ def y_2003():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2003.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_2003` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -411,6 +445,8 @@ def y_2004():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2004.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -433,6 +469,8 @@ def y_2005():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2005.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_2005` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -453,6 +491,8 @@ def y_2006():
   
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2006.parquet')
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
@@ -475,6 +515,8 @@ def y_2007():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2007.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_2007` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -496,6 +538,8 @@ def y_2008():
   # Se carga los datos del data set
   df1 = pd.read_parquet('datasets/Transforms/2008.parquet')
 
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
+
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):
       sql = 'INSERT INTO `y_2008` VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
@@ -515,7 +559,11 @@ def y_2008():
 def y_2015():
   
   # Se carga los datos del data set
-  df1 = pd.read_csv('datasets/Transforms/2015.csv')
+  df1 = pd.read_parquet('datasets/Transforms/2015.parquet')
+
+  df1['Origin_Airport'].replace(0, '0', inplace = True) # Se remplaza los digitos 0 que son tipo 'INT' a tipo 'STR' para realizar la carga
+
+  df1 = df1.sample(n = 100000, replace = False).reset_index(drop = True)
 
   # Se crea u bucle for para hacer la carga de los datos a la base de datos donde 'sql': es el protocolo y 'val': de donde provienen los datos
   for i in range(0, len(df1)):

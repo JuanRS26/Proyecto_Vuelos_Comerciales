@@ -95,11 +95,18 @@ def transforms(df, special = False, ColumnTail = 0, CancelReason = False):
         df['Wheels_Off'].fillna('00:00', inplace = True)
         df['Wheels_On'].fillna('00:00', inplace = True)
 
-        # Identificar códigos IATA que no están en 'airports' y reemplazarlos con '0'
-        df.loc[~df['Origin_Airport'].isin(airports['Code_IATA']), 'Origin_Airport'] = '0'
 
         # Identificar códigos IATA que no están en 'airports' y reemplazarlos con '0'
-        df.loc[~df['Dest_Airport'].isin(airports['Code_IATA']), 'Dest_Airport'] = '0'
+        df.loc[~df['Origin_Airport'].isin(airports['Code_IATA']), 'Origin_Airport'] = None
+
+        # Identificar códigos IATA que no están en 'airports' y reemplazarlos con '0'
+        df.loc[~df['Dest_Airport'].isin(airports['Code_IATA']), 'Dest_Airport'] = None
+
+        # Se elimina los registros sin informacion en la columna 'Origin_Airport' ya que no proporcionan informacion veridica
+        df.dropna(subset = ['Origin_Airport'], inplace = True)
+
+        # Se elimina los registros sin informacion en la columna 'Dest_Airport' ya que no proporcionan informacion veridica
+        df.dropna(subset = ['Dest_Airport'], inplace = True)
 
 
     if ColumnTail == 1:
@@ -179,15 +186,22 @@ def ETLProcedure(data):
 
                     # Se renombran las columnas para que los DataFrames sean mas estandar y mas intuitivos
                     dfAirport1.rename(columns = {'IATA_CODE': 'Code_IATA', 'AIRPORT': 'Airport', 'CITY': 'City', 'STATE': 'State', 'COUNTRY': 'Country', 
-                                                'LATITUDE': 'Latitude', 'LONGITUDE': 'Longitude'}, inplace = True)
+                                                'LATITUDE': 'LATITUDE', 'LONGITUDE': 'LONGITUDE'}, inplace = True)
                     dfAirport2.rename(columns = {'iata': 'Code_IATA', 'airport': 'Airport', 'city': 'City', 'state': 'State', 'country': 'Country', 
-                                                'lat': 'Latitude', 'long': 'Longitude'}, inplace = True)
+                                                'lat': 'LATITUDE', 'long': 'LONGITUDE'}, inplace = True)
 
                     # Se unifican ambos DataFrames para tener toda la información en una sola tabla/DataFrame y reiniciamos los index
                     airports = pd.concat([dfAirport1, dfAirport2], ignore_index = True)
 
                     # Se elimina los datos duplicados tomando como referencia la columna unica 'Code_IATA' y reiniciando los index
                     airports.drop_duplicates(subset = ['Code_IATA'], inplace = True, ignore_index = True)
+
+# -------------------------------------------------------------------------------------------------
+                    # Se agrega una nueva fila para registros sin codigo
+                    New_Row = pd.DataFrame({'Code_IATA': ['0'], 'Airport': ['0'], 'City': ['0'], 'State': ['0'], 'Country': ['0'], 'LATITUDE': [None], 'LONGITUDE': [None]})
+                    airports = pd.concat([airports, New_Row], ignore_index = True)
+
+# -------------------------------------------------------------------------------------------------
 
                     # Se remplaza los demas valores nulos o vacion por el numero 0
                     airports.fillna(0, inplace = True)
@@ -223,7 +237,7 @@ def ETLProcedure(data):
 
             df = dataFrames(data[i])
             df = transforms(df, special = True, ColumnTail = 1, CancelReason = True)
-            df.to_csv(f'datasets/Transforms/2015.csv', index = False)
+            df.to_parquet(f'datasets/Transforms/2015.parquet', index = False)
             continue
 
         elif data[i] == 'description':

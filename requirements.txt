@@ -4,3 +4,7 @@ mysql-connector-python==8.2.0
 numpy==1.26.1
 pandas==2.1.2
 tqdm==4.66.1
+streamlit==1.30.0
+# folium==0.15.1
+matplotlib==3.8.2
+# pydeck==0.8.1b0

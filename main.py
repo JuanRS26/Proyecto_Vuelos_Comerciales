@@ -216,8 +216,10 @@ while True:
                     print(f'\nLa opcion que seleccionaste fue "{opcion}"\n')
                     selected_function() # Se ejecuta la funcion para realizar la carga del data set
                     print(f'\nSe Realizo correctamente la carga de datos del set "{dataset_name}"!!')
+                    continue
                 else:
                     flag = 'return' if opcion == '28' else 'exit'   # Si el valor de la variable es nulo, se reasiga el valor de 'flag'
+
 
             # Si el usuario digita otra cosa que no este en el menu, se vuelve a solicitar que digite una opcion
             else:
@@ -229,6 +231,8 @@ while True:
         # Si el usuario selecciono la opcion se 'volver' la condicional hara que se reinicie el bucle principal 
         if flag == 'return':
             continue
+
+        # continue
 
     # En la quinta opcion solo se ejecuta un mensaje y termina el ciclo while principal
     elif opcion == '5':
