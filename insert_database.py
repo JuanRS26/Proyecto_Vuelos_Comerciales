@@ -2,7 +2,7 @@ import pandas as pd
 import mysql.connector
 
 
-# --------------- Se realiza la carga de la informacion de la base de datos ------------
+#----------------------------------- Se realiza la carga de la informacion de la base de datos -----------------------------------
 
 try:
       # Se realiza la conexion a la base de datos con los datos indicados en el archivo
@@ -34,8 +34,8 @@ except FileNotFoundError:
 
       print('\nSe guardaron los datos correctamente...\n')
 
-# ----------------------------------------------------------------------------------
 
+#----------------------------------- Se hace la conexion a la base de datos -----------------------------------
 
 mydb = mysql.connector.connect(
   host=df['host'][0],   # Se pone la direccion IP donde se aloja la base de datos 
@@ -46,6 +46,8 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()      # Se crea un cursor para poder ejecutar consultas a la base de datos
 
+
+#--------------------------- Funciones para realizar la carga de los datos a la base de datos ---------------------------
 
 # Year 1987
 

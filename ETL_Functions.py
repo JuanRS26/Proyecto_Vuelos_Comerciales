@@ -5,7 +5,8 @@ from tqdm import tqdm   # Funciona para actualizar la carga en pantalla y saber 
 # Desactiva las advertencias de tipo DtypeWarning
 warnings.filterwarnings("ignore", category=pd.errors.DtypeWarning)
 
-# --------------------------------------------------------------------------------------------------------------
+
+#----------------------------------- Funcion para cargar los datos sin procesar -----------------------------------
 
 def dataFrames(NameSet):
 
@@ -21,6 +22,8 @@ def dataFrames(NameSet):
 
     return df
 
+
+# ----------------------------------- Funcion para realizar la tranformacion de cada Set de datos -----------------------------------
 
 def transforms(df, special = False, ColumnTail = 0, CancelReason = False):
 
@@ -140,7 +143,7 @@ def transforms(df, special = False, ColumnTail = 0, CancelReason = False):
 
     # Transformamos los datos para que sea mas legible y se guarda como cadena de texto con el formato correcto de hora
     df['Sched_Dep_Time'] = pd.to_datetime(df['Sched_Dep_Time'].astype(str).str.zfill(4), format='%H%M', errors = 'coerce').dt.strftime('%H:%M')
-    df['Dep_Time'] = pd.to_datetime(df['Dep_Time'].astype(int).astype(str).str.zfill(4), format='%H%M', errors = 'coerce').dt.strftime('%H:%M')   # Mirar a ver que pasa
+    df['Dep_Time'] = pd.to_datetime(df['Dep_Time'].astype(int).astype(str).str.zfill(4), format='%H%M', errors = 'coerce').dt.strftime('%H:%M')
     df['Arr_Time'] = pd.to_datetime(df['Arr_Time'].astype(int).astype(str).str.zfill(4), format='%H%M', errors = 'coerce').dt.strftime('%H:%M')
     df['Sched_Arr_Time'] = pd.to_datetime(df['Sched_Arr_Time'].astype(str).str.zfill(4), format='%H%M', errors = 'coerce').dt.strftime('%H:%M')
 
@@ -152,11 +155,12 @@ def transforms(df, special = False, ColumnTail = 0, CancelReason = False):
     return df
 
 
-# -------------------------------------------------------------------------------------------------------------------------------
+#----------------------------------- Funcion para realizar un ETL segun el set de datos ----------------------------------
 
 def ETLProcedure(data):
 
-    #-------------------------------------------------------------------------------------------
+
+    #------------------------------- Se crea una barra de prograso -------------------------------
 
     # Número total de iteraciones (simulando un proceso)
     total_iteraciones = len(data)
@@ -164,7 +168,8 @@ def ETLProcedure(data):
     # Inicializar la barra de progreso
     barra_progreso = tqdm(total=total_iteraciones, desc="Procesando")
 
-    #-------------------------------------------------------------------------------------------
+
+    #------------------------------- Se inicia con el proceso de ETL para los sets de daos -------------------------------
 
     grupo1 = ['1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994']
     grupo2 = ['1995', '1996', '1997', '1998', '1999', '2000', '2001']
@@ -196,12 +201,9 @@ def ETLProcedure(data):
                     # Se elimina los datos duplicados tomando como referencia la columna unica 'Code_IATA' y reiniciando los index
                     airports.drop_duplicates(subset = ['Code_IATA'], inplace = True, ignore_index = True)
 
-# -------------------------------------------------------------------------------------------------
                     # Se agrega una nueva fila para registros sin codigo
                     New_Row = pd.DataFrame({'Code_IATA': ['0'], 'Airport': ['0'], 'City': ['0'], 'State': ['0'], 'Country': ['0'], 'LATITUDE': [None], 'LONGITUDE': [None]})
                     airports = pd.concat([airports, New_Row], ignore_index = True)
-
-# -------------------------------------------------------------------------------------------------
 
                     # Se remplaza los demas valores nulos o vacion por el numero 0
                     airports.fillna(0, inplace = True)
@@ -317,11 +319,10 @@ def ETLProcedure(data):
 
         barra_progreso.update(1)  # Actualizar la barra de progreso
 
-    #-------------------------------------------------------------------------------------------
+
+    #----------------------------- Fin de la barra de progreso -----------------------------
 
     # Cerrar la barra de progreso al finalizar
     barra_progreso.close()
 
     print("Proceso completado.")
-
-    #-------------------------------------------------------------------------------------------
