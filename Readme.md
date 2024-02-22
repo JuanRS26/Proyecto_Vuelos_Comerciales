@@ -34,7 +34,16 @@ streamlit run app.py
 
 - ### Actualización/Carga de datos
 
-1. 
+1.Si tienes un gestor de bases de datos MySQL y deseas conectarla, primero debes ejecutar en tu gestor de base de datos el **script** que se encuentra en la carpeta 'database/scripts' y crear la base de datos para realizar la conexión. 
+
+2. Inicia el menu el la linea de comandos utilizando:
+```python
+py main.py
+```
+
+3. Ingrea la información de tu base de datos para realizar la conexión:
+![Imagen de conexión a la base de datos](images/info_database.png)
+Posteriormente se guardaran los datos y no sera necesario volver a ingresarlos
 
 ## **Principales fuentes**
 
