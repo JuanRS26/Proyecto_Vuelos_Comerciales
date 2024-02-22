@@ -35,7 +35,7 @@ try:
 
 except FileNotFoundError:
 
-    st.error('Parece que hubo un error con un set de datos ', icon="🚨")    # Se muestra este mensaje en caso que no se haya podido cargar los datos
+    st.error('Parece que hubo un error con el set de datos "airline_flights"', icon="🚨")    # Se muestra este mensaje en caso que no se haya podido cargar los datos
 
     # Se genera un mensaje de espera mientras se crea el set de dator requerido
     with st.spinner('Espera un poco mientras se vuelven a cargan los datos...'):
@@ -81,8 +81,9 @@ try:
     AIRPORT_INFO_DESTINATION['Year'] = AIRPORT_INFO_DESTINATION['Year'].astype(str)
 
 except FileNotFoundError:
-
-    st.error('Parece que hubo un error con un set de datos ', icon="🚨")    # Se muestra este mensaje en caso que no se haya podido cargar los datos
+    
+    # Se muestra este mensaje en caso que no se haya podido cargar los datos
+    st.error('Parece que hubo un error con los sets de datos "airport_info_origin" y "airport_info_destination" ', icon="🚨")
 
     AIRPORTS = pd.read_csv('datasets/Transforms/airports.csv')  # Se carga el set de datos 'airport.csv' para poder extraer los datos
     

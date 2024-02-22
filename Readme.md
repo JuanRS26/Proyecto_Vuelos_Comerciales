@@ -11,27 +11,32 @@ La aviación comercial, o bien aviación de transporte regular comercial, es la 
 
 Dentro de los últimos 10 años, los vuelos comerciales han experimentado un amplio proceso de renovación, instaurando medidas de reducción de costos de explotación, eliminación de rutas no rentables y renovación de la tecnología propia de sus aviones, permitiendo tener una flota más eficiente en cuanto a combustible y emisiones.
 
-Por otro lado, es sabido que este sector fue ampliamente afectado por la pandemia por COVID-19, sacudiendo todas las expectativas económicas y productivas que se tenían a nivel mundial. Actualmente, según informes de la Asociación de Transporte Aéreo Internacional (IATA) una vez finalizadas las restricciones sanitarias, se comenzó a registrar una fuerte subida global en el número de pasajeros, comportamiento que se espera siga aumentando en los años siguientes. 
-
-## **Objetivos**
+## **Objetivos futuros**
 
 - **Definir KPI'S**, tales como reducir la cancelación de vuelo en un 10% en cierto período de tiempo, disminuir o aumentar la flota para ocupar cierto porcentaje de mercado, reducir en cierto porcentaje los destinos poco frecuentes, etc.
 
 - **Generar mapas** sobre concentración de vuelos, destinos frecuentes, rutas frecuentes, etc.
 
-- **Definir alcances**: años a considerar, aerolíneas a considerar, países/continentes a considerar, etc.
+## **Quick start**
+- ### Activacion de la app
 
-- **Definir tablas de hechos y dimensiones** según la información a utilizar.
+1. Descarga La carpeta con los sets de datos y agregala en el proyecto: [Datasets Kaggle](https://www.kaggle.com/datasets/juanrs26/vuelos-comerciales/data)
 
-- **Crear dashboards** que contengan información clave y útil.
+2. Instala las dependencias necesarias:
+```python
+pip install -r requirements.txt
+```
 
-## **Datasets**
+3. Inicia la app para poder interactuar con el dashboard:
+```python
+streamlit run app.py
+```
 
-**Uso Obligatorio**
+- ### Actualización/Carga de datos
 
-- [Datasets Kaggle](https://www.kaggle.com/datasets/juanrs26/vuelos-comerciales/data)
+1. 
 
-**Originales**
+## **Principales fuentes**
 
 - 2015 Flight Delays and Cancellations, Kaggle. 
 https://www.kaggle.com/datasets/usdot/flight-delays?datasetId=810
