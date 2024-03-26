@@ -12,3 +12,4 @@ datasets/
 entorno/
 
 # Archivos con extenciones en especifico (Ej: *.py - *.txt)
+*.pdf

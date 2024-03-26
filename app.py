@@ -179,11 +179,10 @@ st.title(
 # -------------------------------------- Contenido de la pagina --------------------------------------
 
 # Se crea la division de la pagina es tabs
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3 = st.tabs([
                                   ':clipboard: Registros de vuelos', 
                                   ':chart_with_upwards_trend: Aerolineas',
-                                  ':world_map: Aeropuertos', 
-                                  ':computer: Machine Learning'
+                                  ':world_map: Aeropuertos'
                                 ])
 
 # Se agrega la informacion para el tab 1 'Registros de vuelos'
@@ -438,9 +437,3 @@ with tab3:
                 use_container_width = True,
                 height = 700
             )
-
-
-# Se agrega la informacion para el tab 4 'Machine Learning'
-with tab4:
-
-    st.header('PROXIMAMENTE...', anchor = False)
